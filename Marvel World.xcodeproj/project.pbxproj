@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		8D13F49B26635E94004DE433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F49A26635E94004DE433 /* AppDelegate.swift */; };
 		8D13F49D26635E94004DE433 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F49C26635E94004DE433 /* SceneDelegate.swift */; };
-		8D13F49F26635E94004DE433 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F49E26635E94004DE433 /* ViewController.swift */; };
 		8D13F4A426635E96004DE433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F4A326635E96004DE433 /* Assets.xcassets */; };
 		8D13F4A726635E96004DE433 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F4A526635E96004DE433 /* LaunchScreen.storyboard */; };
 		8D13F4B226635E96004DE433 /* Marvel_WorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F4B126635E96004DE433 /* Marvel_WorldTests.swift */; };
 		8D13F4BD26635E96004DE433 /* Marvel_WorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F4BC26635E96004DE433 /* Marvel_WorldUITests.swift */; };
+		8D13F4FF266363BD004DE433 /* SuperHerosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F4FD266363BD004DE433 /* SuperHerosListViewController.swift */; };
+		8D13F500266363BD004DE433 /* SuperHerosListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F4FE266363BD004DE433 /* SuperHerosListViewController.xib */; };
+		8D13F50726636690004DE433 /* SuperHeroesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */; };
+		8D13F50826636690004DE433 /* SuperHeroesListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */; };
+		8D13F51226636763004DE433 /* UIViewController+AddChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F51126636763004DE433 /* UIViewController+AddChild.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,6 @@
 		8D13F49726635E94004DE433 /* Marvel World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D13F49A26635E94004DE433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D13F49C26635E94004DE433 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8D13F49E26635E94004DE433 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8D13F4A326635E96004DE433 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D13F4A626635E96004DE433 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D13F4A826635E96004DE433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,11 @@
 		8D13F4B826635E96004DE433 /* Marvel WorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel WorldUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D13F4BC26635E96004DE433 /* Marvel_WorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel_WorldUITests.swift; sourceTree = "<group>"; };
 		8D13F4BE26635E96004DE433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D13F4FD266363BD004DE433 /* SuperHerosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHerosListViewController.swift; sourceTree = "<group>"; };
+		8D13F4FE266363BD004DE433 /* SuperHerosListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHerosListViewController.xib; sourceTree = "<group>"; };
+		8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroesListTableViewController.swift; sourceTree = "<group>"; };
+		8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroesListTableViewController.xib; sourceTree = "<group>"; };
+		8D13F51126636763004DE433 /* UIViewController+AddChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddChild.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +105,9 @@
 		8D13F49926635E94004DE433 /* Marvel World */ = {
 			isa = PBXGroup;
 			children = (
-				8D13F49A26635E94004DE433 /* AppDelegate.swift */,
-				8D13F49C26635E94004DE433 /* SceneDelegate.swift */,
-				8D13F49E26635E94004DE433 /* ViewController.swift */,
+				8D13F50F26636741004DE433 /* Utils */,
+				8D13F4E42663624A004DE433 /* Application */,
+				8D13F4E326636244004DE433 /* Scene */,
 				8D13F4A326635E96004DE433 /* Assets.xcassets */,
 				8D13F4A526635E96004DE433 /* LaunchScreen.storyboard */,
 				8D13F4A826635E96004DE433 /* Info.plist */,
@@ -123,6 +131,66 @@
 				8D13F4BE26635E96004DE433 /* Info.plist */,
 			);
 			path = "Marvel WorldUITests";
+			sourceTree = "<group>";
+		};
+		8D13F4E326636244004DE433 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F4E5266362DB004DE433 /* SuperHeroesList */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		8D13F4E42663624A004DE433 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F49A26635E94004DE433 /* AppDelegate.swift */,
+				8D13F49C26635E94004DE433 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8D13F4E5266362DB004DE433 /* SuperHeroesList */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F4F62663638A004DE433 /* View */,
+			);
+			path = SuperHeroesList;
+			sourceTree = "<group>";
+		};
+		8D13F4F62663638A004DE433 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F5042663665D004DE433 /* TableViewController */,
+				8D13F4FD266363BD004DE433 /* SuperHerosListViewController.swift */,
+				8D13F4FE266363BD004DE433 /* SuperHerosListViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D13F5042663665D004DE433 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */,
+				8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */,
+			);
+			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		8D13F50F26636741004DE433 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F51026636751004DE433 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8D13F51026636751004DE433 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F51126636763004DE433 /* UIViewController+AddChild.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D13F4A726635E96004DE433 /* LaunchScreen.storyboard in Resources */,
+				8D13F500266363BD004DE433 /* SuperHerosListViewController.xib in Resources */,
 				8D13F4A426635E96004DE433 /* Assets.xcassets in Resources */,
+				8D13F50826636690004DE433 /* SuperHeroesListTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,9 +324,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D13F49F26635E94004DE433 /* ViewController.swift in Sources */,
 				8D13F49B26635E94004DE433 /* AppDelegate.swift in Sources */,
 				8D13F49D26635E94004DE433 /* SceneDelegate.swift in Sources */,
+				8D13F4FF266363BD004DE433 /* SuperHerosListViewController.swift in Sources */,
+				8D13F51226636763004DE433 /* UIViewController+AddChild.swift in Sources */,
+				8D13F50726636690004DE433 /* SuperHeroesListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
