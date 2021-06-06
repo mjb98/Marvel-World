@@ -18,6 +18,16 @@
 		8D13F50726636690004DE433 /* SuperHeroesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */; };
 		8D13F50826636690004DE433 /* SuperHeroesListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */; };
 		8D13F51226636763004DE433 /* UIViewController+AddChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F51126636763004DE433 /* UIViewController+AddChild.swift */; };
+		8D13F5322663DF7C004DE433 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5312663DF7C004DE433 /* Endpoint.swift */; };
+		8D13F5382663E08F004DE433 /* URLSession+CustomPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5372663E08F004DE433 /* URLSession+CustomPublisher.swift */; };
+		8D13F5402663E171004DE433 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F53F2663E171004DE433 /* NetworkError.swift */; };
+		8D13F5452663E320004DE433 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5442663E320004DE433 /* AppConfiguration.swift */; };
+		8D13F54F2663E4EA004DE433 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F54E2663E4EA004DE433 /* Character.swift */; };
+		8D13F5572663E542004DE433 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5562663E542004DE433 /* Endpoints.swift */; };
+		8D13F56C2663E657004DE433 /* CharacterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F56B2663E657004DE433 /* CharacterLoader.swift */; };
+		8D13F5732668F361004DE433 /* SuperHeroesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5722668F361004DE433 /* SuperHeroesListViewModel.swift */; };
+		8D25BBDB266CA99700BC506D /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BBDA266CA99700BC506D /* String+md5.swift */; };
+		8D25BBE1266CAAD900BC506D /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BBE0266CAAD900BC506D /* NetworkResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +65,16 @@
 		8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroesListTableViewController.swift; sourceTree = "<group>"; };
 		8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroesListTableViewController.xib; sourceTree = "<group>"; };
 		8D13F51126636763004DE433 /* UIViewController+AddChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddChild.swift"; sourceTree = "<group>"; };
+		8D13F5312663DF7C004DE433 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		8D13F5372663E08F004DE433 /* URLSession+CustomPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+CustomPublisher.swift"; sourceTree = "<group>"; };
+		8D13F53F2663E171004DE433 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		8D13F5442663E320004DE433 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		8D13F54E2663E4EA004DE433 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		8D13F5562663E542004DE433 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		8D13F56B2663E657004DE433 /* CharacterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLoader.swift; sourceTree = "<group>"; };
+		8D13F5722668F361004DE433 /* SuperHeroesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroesListViewModel.swift; sourceTree = "<group>"; };
+		8D25BBDA266CA99700BC506D /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
+		8D25BBE0266CAAD900BC506D /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +125,8 @@
 		8D13F49926635E94004DE433 /* Marvel World */ = {
 			isa = PBXGroup;
 			children = (
-				8D13F50F26636741004DE433 /* Utils */,
+				8D13F54C2663E4AA004DE433 /* Domain */,
+				8D13F51A2663D895004DE433 /* Data */,
 				8D13F4E42663624A004DE433 /* Application */,
 				8D13F4E326636244004DE433 /* Scene */,
 				8D13F4A326635E96004DE433 /* Assets.xcassets */,
@@ -136,6 +157,7 @@
 		8D13F4E326636244004DE433 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				8D13F50F26636741004DE433 /* Utils */,
 				8D13F4E5266362DB004DE433 /* SuperHeroesList */,
 			);
 			path = Scene;
@@ -146,6 +168,7 @@
 			children = (
 				8D13F49A26635E94004DE433 /* AppDelegate.swift */,
 				8D13F49C26635E94004DE433 /* SceneDelegate.swift */,
+				8D13F5442663E320004DE433 /* AppConfiguration.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -172,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */,
+				8D13F5722668F361004DE433 /* SuperHeroesListViewModel.swift */,
 				8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */,
 			);
 			path = TableViewController;
@@ -191,6 +215,60 @@
 				8D13F51126636763004DE433 /* UIViewController+AddChild.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8D13F51A2663D895004DE433 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F52D2663DF47004DE433 /* Utils */,
+				8D13F5312663DF7C004DE433 /* Endpoint.swift */,
+				8D13F5562663E542004DE433 /* Endpoints.swift */,
+				8D13F56B2663E657004DE433 /* CharacterLoader.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8D13F52D2663DF47004DE433 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8D25BBDF266CAAB000BC506D /* NetworkModels */,
+				8D13F5362663E05C004DE433 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8D13F5362663E05C004DE433 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F5372663E08F004DE433 /* URLSession+CustomPublisher.swift */,
+				8D25BBDA266CA99700BC506D /* String+md5.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8D13F54C2663E4AA004DE433 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F54D2663E4E2004DE433 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8D13F54D2663E4E2004DE433 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F54E2663E4EA004DE433 /* Character.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		8D25BBDF266CAAB000BC506D /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				8D13F53F2663E171004DE433 /* NetworkError.swift */,
+				8D25BBE0266CAAD900BC506D /* NetworkResponse.swift */,
+			);
+			path = NetworkModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,11 +402,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D13F5382663E08F004DE433 /* URLSession+CustomPublisher.swift in Sources */,
+				8D25BBDB266CA99700BC506D /* String+md5.swift in Sources */,
+				8D13F5402663E171004DE433 /* NetworkError.swift in Sources */,
 				8D13F49B26635E94004DE433 /* AppDelegate.swift in Sources */,
+				8D13F5732668F361004DE433 /* SuperHeroesListViewModel.swift in Sources */,
 				8D13F49D26635E94004DE433 /* SceneDelegate.swift in Sources */,
+				8D13F56C2663E657004DE433 /* CharacterLoader.swift in Sources */,
 				8D13F4FF266363BD004DE433 /* SuperHerosListViewController.swift in Sources */,
 				8D13F51226636763004DE433 /* UIViewController+AddChild.swift in Sources */,
+				8D13F5322663DF7C004DE433 /* Endpoint.swift in Sources */,
+				8D13F54F2663E4EA004DE433 /* Character.swift in Sources */,
+				8D25BBE1266CAAD900BC506D /* NetworkResponse.swift in Sources */,
+				8D13F5452663E320004DE433 /* AppConfiguration.swift in Sources */,
 				8D13F50726636690004DE433 /* SuperHeroesListTableViewController.swift in Sources */,
+				8D13F5572663E542004DE433 /* Endpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

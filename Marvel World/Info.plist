@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>PublicApiKey</key>
+	<string>9e24aad4bb1d30600e009a7e76aaa692</string>
+	<key>PrivateApiKey</key>
+	<string>3d158471a55074d9ebe847e03e449c0511298abd</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
