@@ -15,5 +15,6 @@ struct NetworkResponse<Wrapped: Decodable>: Decodable {
 
 struct ResponseData<Wrapped: Decodable>: Decodable {
     let results: Wrapped
+    let total: Int
   
 }
