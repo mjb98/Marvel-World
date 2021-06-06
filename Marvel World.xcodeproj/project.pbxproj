@@ -13,10 +13,10 @@
 		8D13F4A726635E96004DE433 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F4A526635E96004DE433 /* LaunchScreen.storyboard */; };
 		8D13F4B226635E96004DE433 /* Marvel_WorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F4B126635E96004DE433 /* Marvel_WorldTests.swift */; };
 		8D13F4BD26635E96004DE433 /* Marvel_WorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F4BC26635E96004DE433 /* Marvel_WorldUITests.swift */; };
-		8D13F4FF266363BD004DE433 /* SuperHerosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F4FD266363BD004DE433 /* SuperHerosListViewController.swift */; };
-		8D13F500266363BD004DE433 /* SuperHerosListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F4FE266363BD004DE433 /* SuperHerosListViewController.xib */; };
-		8D13F50726636690004DE433 /* SuperHeroesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */; };
-		8D13F50826636690004DE433 /* SuperHeroesListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */; };
+		8D13F4FF266363BD004DE433 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F4FD266363BD004DE433 /* CharacterListViewController.swift */; };
+		8D13F500266363BD004DE433 /* CharacterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F4FE266363BD004DE433 /* CharacterListViewController.xib */; };
+		8D13F50726636690004DE433 /* CharacterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F50526636690004DE433 /* CharacterListTableViewController.swift */; };
+		8D13F50826636690004DE433 /* CharacterListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D13F50626636690004DE433 /* CharacterListTableViewController.xib */; };
 		8D13F51226636763004DE433 /* UIViewController+AddChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F51126636763004DE433 /* UIViewController+AddChild.swift */; };
 		8D13F5322663DF7C004DE433 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5312663DF7C004DE433 /* Endpoint.swift */; };
 		8D13F5382663E08F004DE433 /* URLSession+CustomPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5372663E08F004DE433 /* URLSession+CustomPublisher.swift */; };
@@ -25,9 +25,10 @@
 		8D13F54F2663E4EA004DE433 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F54E2663E4EA004DE433 /* Character.swift */; };
 		8D13F5572663E542004DE433 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5562663E542004DE433 /* Endpoints.swift */; };
 		8D13F56C2663E657004DE433 /* CharacterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F56B2663E657004DE433 /* CharacterLoader.swift */; };
-		8D13F5732668F361004DE433 /* SuperHeroesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F5722668F361004DE433 /* SuperHeroesListViewModel.swift */; };
 		8D25BBDB266CA99700BC506D /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BBDA266CA99700BC506D /* String+md5.swift */; };
 		8D25BBE1266CAAD900BC506D /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BBE0266CAAD900BC506D /* NetworkResponse.swift */; };
+		8D25BC00266CAF2F00BC506D /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BBFF266CAF2F00BC506D /* CharacterListViewModel.swift */; };
+		8D25BC05266CBE2600BC506D /* CharacterListDiffableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BC04266CBE2600BC506D /* CharacterListDiffableDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +61,10 @@
 		8D13F4B826635E96004DE433 /* Marvel WorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel WorldUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D13F4BC26635E96004DE433 /* Marvel_WorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel_WorldUITests.swift; sourceTree = "<group>"; };
 		8D13F4BE26635E96004DE433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D13F4FD266363BD004DE433 /* SuperHerosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHerosListViewController.swift; sourceTree = "<group>"; };
-		8D13F4FE266363BD004DE433 /* SuperHerosListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHerosListViewController.xib; sourceTree = "<group>"; };
-		8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroesListTableViewController.swift; sourceTree = "<group>"; };
-		8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperHeroesListTableViewController.xib; sourceTree = "<group>"; };
+		8D13F4FD266363BD004DE433 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
+		8D13F4FE266363BD004DE433 /* CharacterListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterListViewController.xib; sourceTree = "<group>"; };
+		8D13F50526636690004DE433 /* CharacterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableViewController.swift; sourceTree = "<group>"; };
+		8D13F50626636690004DE433 /* CharacterListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterListTableViewController.xib; sourceTree = "<group>"; };
 		8D13F51126636763004DE433 /* UIViewController+AddChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddChild.swift"; sourceTree = "<group>"; };
 		8D13F5312663DF7C004DE433 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8D13F5372663E08F004DE433 /* URLSession+CustomPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+CustomPublisher.swift"; sourceTree = "<group>"; };
@@ -72,9 +73,10 @@
 		8D13F54E2663E4EA004DE433 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8D13F5562663E542004DE433 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		8D13F56B2663E657004DE433 /* CharacterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLoader.swift; sourceTree = "<group>"; };
-		8D13F5722668F361004DE433 /* SuperHeroesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroesListViewModel.swift; sourceTree = "<group>"; };
 		8D25BBDA266CA99700BC506D /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		8D25BBE0266CAAD900BC506D /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		8D25BBFF266CAF2F00BC506D /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		8D25BC04266CBE2600BC506D /* CharacterListDiffableDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDiffableDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				8D13F50F26636741004DE433 /* Utils */,
-				8D13F4E5266362DB004DE433 /* SuperHeroesList */,
+				8D13F4E5266362DB004DE433 /* CharacterList */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -173,20 +175,21 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		8D13F4E5266362DB004DE433 /* SuperHeroesList */ = {
+		8D13F4E5266362DB004DE433 /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
 				8D13F4F62663638A004DE433 /* View */,
 			);
-			path = SuperHeroesList;
+			path = CharacterList;
 			sourceTree = "<group>";
 		};
 		8D13F4F62663638A004DE433 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				8D13F5042663665D004DE433 /* TableViewController */,
-				8D13F4FD266363BD004DE433 /* SuperHerosListViewController.swift */,
-				8D13F4FE266363BD004DE433 /* SuperHerosListViewController.xib */,
+				8D13F4FD266363BD004DE433 /* CharacterListViewController.swift */,
+				8D25BBFF266CAF2F00BC506D /* CharacterListViewModel.swift */,
+				8D13F4FE266363BD004DE433 /* CharacterListViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,9 +197,9 @@
 		8D13F5042663665D004DE433 /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8D13F50526636690004DE433 /* SuperHeroesListTableViewController.swift */,
-				8D13F5722668F361004DE433 /* SuperHeroesListViewModel.swift */,
-				8D13F50626636690004DE433 /* SuperHeroesListTableViewController.xib */,
+				8D13F50526636690004DE433 /* CharacterListTableViewController.swift */,
+				8D13F50626636690004DE433 /* CharacterListTableViewController.xib */,
+				8D25BC04266CBE2600BC506D /* CharacterListDiffableDatasource.swift */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -375,9 +378,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D13F4A726635E96004DE433 /* LaunchScreen.storyboard in Resources */,
-				8D13F500266363BD004DE433 /* SuperHerosListViewController.xib in Resources */,
+				8D13F500266363BD004DE433 /* CharacterListViewController.xib in Resources */,
 				8D13F4A426635E96004DE433 /* Assets.xcassets in Resources */,
-				8D13F50826636690004DE433 /* SuperHeroesListTableViewController.xib in Resources */,
+				8D13F50826636690004DE433 /* CharacterListTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,19 +406,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D13F5382663E08F004DE433 /* URLSession+CustomPublisher.swift in Sources */,
+				8D25BC05266CBE2600BC506D /* CharacterListDiffableDatasource.swift in Sources */,
 				8D25BBDB266CA99700BC506D /* String+md5.swift in Sources */,
 				8D13F5402663E171004DE433 /* NetworkError.swift in Sources */,
 				8D13F49B26635E94004DE433 /* AppDelegate.swift in Sources */,
-				8D13F5732668F361004DE433 /* SuperHeroesListViewModel.swift in Sources */,
 				8D13F49D26635E94004DE433 /* SceneDelegate.swift in Sources */,
 				8D13F56C2663E657004DE433 /* CharacterLoader.swift in Sources */,
-				8D13F4FF266363BD004DE433 /* SuperHerosListViewController.swift in Sources */,
+				8D13F4FF266363BD004DE433 /* CharacterListViewController.swift in Sources */,
 				8D13F51226636763004DE433 /* UIViewController+AddChild.swift in Sources */,
 				8D13F5322663DF7C004DE433 /* Endpoint.swift in Sources */,
 				8D13F54F2663E4EA004DE433 /* Character.swift in Sources */,
 				8D25BBE1266CAAD900BC506D /* NetworkResponse.swift in Sources */,
 				8D13F5452663E320004DE433 /* AppConfiguration.swift in Sources */,
-				8D13F50726636690004DE433 /* SuperHeroesListTableViewController.swift in Sources */,
+				8D13F50726636690004DE433 /* CharacterListTableViewController.swift in Sources */,
+				8D25BC00266CAF2F00BC506D /* CharacterListViewModel.swift in Sources */,
 				8D13F5572663E542004DE433 /* Endpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
