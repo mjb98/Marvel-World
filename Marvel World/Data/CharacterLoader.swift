@@ -8,10 +8,18 @@
 import Combine
 import Foundation
 
-struct CharacterLoader {
-    var urlSession = URLSession.shared
-   
+protocol CharacterLoader {
+    func loadCharacters(offset: Int)-> AnyPublisher<ResponseData<[Character]>, Error>
+}
+
+struct NetworkCharacterLoader: CharacterLoader  {
+    var urlSession: URLSession
+    
     func loadCharacters(offset: Int)-> AnyPublisher<ResponseData<[Character]>, Error> {
         urlSession.publisher(for: .getCharacters(offset: offset))
+    }
+    
+    init(urlSession: URLSession = .shared) {
+        self.urlSession = urlSession
     }
 }
