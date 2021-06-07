@@ -9,8 +9,6 @@ import Combine
 import UIKit
 
 class CharacterListViewController: UIViewController {
-    
-    @IBOutlet private weak var searchBarContainer: UIView!
     @IBOutlet private weak var superheroesListContainer: UIView!
     
     private var viewModel: CharacterListViewModel
@@ -20,6 +18,7 @@ class CharacterListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableViewController = .init(viewModel: viewModel)
         add(child: tableViewController, container: superheroesListContainer)
         setupSearchBarListeners()
@@ -59,11 +58,18 @@ extension CharacterListViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.translatesAutoresizingMaskIntoConstraints = true
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.frame = searchBarContainer.bounds
         searchController.searchBar.autoresizingMask = [.flexibleWidth]
-        searchBarContainer.addSubview(searchController.searchBar)
         definesPresentationContext = true
+        navigationItem.searchController = searchController
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Characters"
+        navigationItem.rightBarButtonItem = .init(image: UIImage(named: "like"), style: .done, target: self, action: #selector(change))
         
+        
+    }
+    @objc
+    func change() {
+        navigationItem.rightBarButtonItem = .init(image: UIImage(named: "likeFilled")?.withRenderingMode(.alwaysOriginal), style: .done, target: nil, action: nil)
     }
 }
 

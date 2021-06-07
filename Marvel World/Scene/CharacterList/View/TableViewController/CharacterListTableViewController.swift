@@ -28,7 +28,6 @@ class CharacterListTableViewController: UITableViewController {
         prepareTableView()
         bind()
         
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -98,10 +97,6 @@ class LoadingCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
-    
     
 }
 

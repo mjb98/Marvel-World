@@ -27,6 +27,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Top-Od-KrM">
+                        <rect key="frame" x="306" y="14" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Zbf-Tg-Qls"/>
+                            <constraint firstAttribute="width" constant="25" id="mMk-zN-7lO"/>
+                        </constraints>
+                        <state key="normal" image="like"/>
+                        <state key="selected" image="likeFilled"/>
+                        <connections>
+                            <action selector="favouriteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QwP-yR-eX0"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="2Ol-XQ-8NU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7DW-tG-xSr"/>
@@ -34,6 +46,8 @@
                     <constraint firstItem="H3X-Px-9W0" firstAttribute="centerY" secondItem="2Ol-XQ-8NU" secondAttribute="centerY" multiplier="1.5" constant="8.5" id="CgX-2F-Wmr"/>
                     <constraint firstItem="2Ol-XQ-8NU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="P6w-Ji-gwr"/>
                     <constraint firstItem="H3X-Px-9W0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="W69-tu-CeK"/>
+                    <constraint firstItem="2Ol-XQ-8NU" firstAttribute="top" secondItem="Top-Od-KrM" secondAttribute="bottom" constant="-39" id="iTT-gc-dNo"/>
+                    <constraint firstItem="Top-Od-KrM" firstAttribute="leading" secondItem="2Ol-XQ-8NU" secondAttribute="trailing" constant="-52" id="lpO-UE-y5B"/>
                     <constraint firstAttribute="trailing" secondItem="2Ol-XQ-8NU" secondAttribute="trailing" id="mE1-hF-uXX"/>
                     <constraint firstAttribute="bottom" secondItem="2Ol-XQ-8NU" secondAttribute="bottom" id="nmo-PP-avM"/>
                     <constraint firstAttribute="bottom" secondItem="H3X-Px-9W0" secondAttribute="bottom" id="r5I-5y-KGI"/>
@@ -41,10 +55,15 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="favouriteButton" destination="Top-Od-KrM" id="7tW-tE-xyN"/>
                 <outlet property="thumbnailImageView" destination="2Ol-XQ-8NU" id="ekj-Oj-2tE"/>
                 <outlet property="titleLabel" destination="H3X-Px-9W0" id="461-mQ-gWc"/>
             </connections>
             <point key="canvasLocation" x="78.260869565217391" y="50.892857142857139"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="like" width="19" height="18"/>
+        <image name="likeFilled" width="19" height="18"/>
+    </resources>
 </document>

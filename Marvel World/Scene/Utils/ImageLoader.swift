@@ -95,7 +95,7 @@ class UIImageLoader {
 
   private init() {}
 
-    func load(_ url: URL, for imageView: UIImageView) {
+    func load(_ url: URL, for imageView: UIImageView, complitionHandler: ((UIImage) -> ())? = nil) {
       // 1
         let token = imageLoader.loadImage(url, pointSize: imageView.frame.size) { result in
         // 2
@@ -105,6 +105,7 @@ class UIImageLoader {
           let image = try result.get()
           DispatchQueue.main.async {
             imageView.image = image
+            complitionHandler?(image)
           }
         } catch {
           // handle the error
@@ -128,8 +129,8 @@ class UIImageLoader {
 }
 
 extension UIImageView {
-  func loadImage(at url: URL) {
-    UIImageLoader.loader.load(url, for: self)
+    func loadImage(at url: URL, complitionHandler: ((UIImage) -> ())? = nil) {
+    UIImageLoader.loader.load(url, for: self, complitionHandler: complitionHandler)
   }
 
   func cancelImageLoad() {
