@@ -8,7 +8,11 @@
 import Foundation
 
 extension Endpoint where Response == ResponseData<[Character]> {
-    static func getCharacters(offset: Int) -> Self {
-        Endpoint(path: "v1/public/characters", queryItems: [.init(name: "offset", value: "\(offset)")])
+    static func getCharacters(offset: Int, startWith: String? = nil) -> Self {
+        var queryItems = [URLQueryItem(name: "offset", value: "\(offset)")]
+        if let queryText = startWith  {
+            queryItems.append(.init(name: "nameStartsWith", value: queryText))
+        }
+        return Endpoint(path: "v1/public/characters", queryItems: queryItems)
     }
 }

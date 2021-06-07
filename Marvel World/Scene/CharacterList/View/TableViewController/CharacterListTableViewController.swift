@@ -48,13 +48,20 @@ class CharacterListTableViewController: UITableViewController {
     }
     
     private func bind() {
+        
         viewModel.$characters.receive(on: RunLoop.main).sink { [weak self] characters in
-            self?.dataSource?.update(with: characters)
+            guard let self = self else {
+                return
+            }
+            self.dataSource?.update(with: characters, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
         }.store(in: &viewModel.cancelables)
         
         viewModel.$networkError.compactMap { $0 }.receive(on: RunLoop.main).sink { [weak self] error in
-            self?.dataSource?.setError(characters: self?.viewModel.characters ?? [], error: error, retryAction: .init(handler: { _ in
-                self?.dataSource?.update(with: self?.viewModel.characters ?? [])
+            guard let self = self else {
+                return
+            }
+            self.dataSource?.setError(characters: self.viewModel.characters, error: error, retryAction: .init(handler: { _ in
+                self.dataSource?.update(with: self.viewModel.characters, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
                 
             }))
             

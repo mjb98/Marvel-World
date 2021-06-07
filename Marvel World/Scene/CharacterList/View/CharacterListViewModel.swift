@@ -11,8 +11,17 @@ import Foundation
 class CharacterListViewModel: ObservableObject {
     @Published  var characters: [Character] = []
     @Published  var networkError: Error?
+    
     private let characterLoader: CharacterLoader
-     var cancelables =  Set<AnyCancellable>()
+    private var queryText: String? {
+        didSet {
+            if (queryText ?? "").isEmpty{
+                queryText = nil
+            }
+        }
+    }
+    
+    var cancelables =  Set<AnyCancellable>()
     var isMoreDataAvailable = true
     
     init(characterLoader: CharacterLoader = NetworkCharacterLoader()) {
@@ -20,13 +29,14 @@ class CharacterListViewModel: ObservableObject {
     }
   
     func fetchCharacters() {
-        characterLoader.loadCharacters(offset: characters.count)
+        characterLoader.loadCharacters(offset: characters.count, query: self.queryText)
             .receive(on: RunLoop.main)
             .sinkToResult {[self] result in
                 switch result {
                 case .success(let response):
                     characters.append(contentsOf: response.results)
-                    isMoreDataAvailable = response.total <= characters.count
+                    isMoreDataAvailable = response.total > characters.count
+                     print(isMoreDataAvailable)
                     
                 case .failure(let error):
                     networkError = error
@@ -35,5 +45,18 @@ class CharacterListViewModel: ObservableObject {
     }
     
    
+    func didSearch(query: String) {
+        isMoreDataAvailable = true
+        self.queryText = query
+        characters = []
+    }
     
+    func didCancelSearch() {
+        isMoreDataAvailable = true
+        if self.queryText != nil {
+            self.queryText = nil
+            characters = []
+        }
+        
+    }
 }

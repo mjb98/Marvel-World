@@ -9,37 +9,72 @@ import Combine
 import UIKit
 
 class CharacterListViewController: UIViewController {
+    
     @IBOutlet private weak var searchBarContainer: UIView!
     @IBOutlet private weak var superheroesListContainer: UIView!
-    private var can =  Set<AnyCancellable>()
     
-    private lazy var tableViewController: CharacterListTableViewController = .init(viewModel: .init())
+    private var viewModel: CharacterListViewModel
+    private var tableViewController: CharacterListTableViewController!
     private var searchController = UISearchController(searchResultsController: nil)
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewController = .init(viewModel: viewModel)
         add(child: tableViewController, container: superheroesListContainer)
+        setupSearchBarListeners()
         setupSearchController()
     }
     
+    init(viewModel: CharacterListViewModel = .init()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+
+    }
     
-
-
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupSearchBarListeners() {
+        let publisher = NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: searchController.searchBar.searchTextField)
+        publisher
+            .map {
+            ($0.object as! UISearchTextField).text
+        }
+            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+            .sink { (str) in
+                guard let query = str else  { return }
+                self.viewModel.didSearch(query: query)
+            }.store(in: &viewModel.cancelables)
+    }
+    
+    
 }
 
 extension CharacterListViewController {
     private func setupSearchController() {
-      
-//        searchController.searchBar.delegate = self
-        searchController.searchBar.placeholder = "iewModel.searchBarPlaceholder"
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search..."
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.translatesAutoresizingMaskIntoConstraints = true
-      
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.frame = searchBarContainer.bounds
         searchController.searchBar.autoresizingMask = [.flexibleWidth]
         searchBarContainer.addSubview(searchController.searchBar)
         definesPresentationContext = true
-       
+        
+    }
+}
+
+extension CharacterListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        searchController.isActive = false
+  
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.didCancelSearch()
     }
 }

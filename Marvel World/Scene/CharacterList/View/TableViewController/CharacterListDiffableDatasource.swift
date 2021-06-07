@@ -18,9 +18,11 @@ class CharacterListDiffableDataSource {
         
     }
     
-    func update(with list: [Character]) {
+    func update(with list: [Character], isMoreDataAvailable: Bool = true) {
         var snapshot =  createSnapShot(with: list)
-        snapshot.appendItems([CellWrapper.loadingCell], toSection: .loading)
+        if isMoreDataAvailable {
+            snapshot.appendItems([CellWrapper.loadingCell], toSection: .loading)
+        }
         dataSource?.apply(snapshot, animatingDifferences: false)
         
     }
