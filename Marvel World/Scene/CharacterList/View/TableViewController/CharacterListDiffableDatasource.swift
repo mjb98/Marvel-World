@@ -18,8 +18,8 @@ class CharacterListDiffableDataSource {
         
     }
     
-    func update(with list: [Character], isMoreDataAvailable: Bool = true) {
-        var snapshot =  createSnapShot(with: list)
+    func update(with list: [Character],storageController: FavouritesStroageController, isMoreDataAvailable: Bool = true) {
+        var snapshot =  createSnapShot(with: list, stroageController: storageController)
         if isMoreDataAvailable {
             snapshot.appendItems([CellWrapper.loadingCell], toSection: .loading)
         }
@@ -27,16 +27,19 @@ class CharacterListDiffableDataSource {
         
     }
     
-    func setError(characters: [Character],error: Error, retryAction: UIAction) {
-        var snapshot =  createSnapShot(with: characters)
+    func setError(characters: [Character],storageController: FavouritesStroageController, error: Error, retryAction: UIAction) {
+        var snapshot =  createSnapShot(with: characters, stroageController: storageController)
         snapshot.appendItems([CellWrapper.retryCell(action: retryAction)], toSection: .Retry)
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
-    private func createSnapShot(with list: [Character]) -> NSDiffableDataSourceSnapshot<Section, CellWrapper> {
+    private func createSnapShot(with list: [Character], stroageController: FavouritesStroageController) -> NSDiffableDataSourceSnapshot<Section, CellWrapper> {
         var snapshot = NSDiffableDataSourceSnapshot<Section, CellWrapper>()
         snapshot.appendSections(Section.allCases)
-        snapshot.appendItems(list.uniqued().map(CellWrapper.characterCell(character:)), toSection: .character)
+        let characters = list.uniqued().map { character in
+            CellWrapper.characterCell(viewModel: .init(character: character, favouriteStroageController: stroageController))
+        }
+        snapshot.appendItems(characters, toSection: .character)
         return snapshot
     }
     
@@ -79,7 +82,7 @@ extension CharacterListDiffableDataSource {
     }
     
     enum CellWrapper: Hashable {
-        case characterCell(character: Character)
+        case characterCell(viewModel: CharacterCellViewModel)
         case loadingCell
         case retryCell(action: UIAction)
         

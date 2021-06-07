@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol StorageController {
+protocol StorageController: class {
     associatedtype T: Codable
     func save(_ : [T])
     func fetchAll() -> [T]

@@ -27,6 +27,7 @@
 		8D13F56C2663E657004DE433 /* CharacterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13F56B2663E657004DE433 /* CharacterLoader.swift */; };
 		8D259498266DF0860024E472 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D259497266DF0860024E472 /* Bindable.swift */; };
 		8D2594A2266E3AC60024E472 /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2594A1266E3AC60024E472 /* StorageController.swift */; };
+		8D2594AF266E52700024E472 /* CharacterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2594AE266E52700024E472 /* CharacterCellViewModel.swift */; };
 		8D25BBDB266CA99700BC506D /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BBDA266CA99700BC506D /* String+md5.swift */; };
 		8D25BBE1266CAAD900BC506D /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BBE0266CAAD900BC506D /* NetworkResponse.swift */; };
 		8D25BC00266CAF2F00BC506D /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25BBFF266CAF2F00BC506D /* CharacterListViewModel.swift */; };
@@ -81,6 +82,7 @@
 		8D13F56B2663E657004DE433 /* CharacterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLoader.swift; sourceTree = "<group>"; };
 		8D259497266DF0860024E472 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		8D2594A1266E3AC60024E472 /* StorageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageController.swift; sourceTree = "<group>"; };
+		8D2594AE266E52700024E472 /* CharacterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewModel.swift; sourceTree = "<group>"; };
 		8D25BBDA266CA99700BC506D /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		8D25BBE0266CAAD900BC506D /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		8D25BBFF266CAF2F00BC506D /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				8DA2A6EA266D127B000B8C65 /* CharacterTableViewCell.swift */,
 				8DA2A6EB266D127B000B8C65 /* CharacterTableViewCell.xib */,
 				8D25BC04266CBE2600BC506D /* CharacterListDiffableDatasource.swift */,
+				8D2594AE266E52700024E472 /* CharacterCellViewModel.swift */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				8D25BBE1266CAAD900BC506D /* NetworkResponse.swift in Sources */,
 				8DA2A6EC266D127B000B8C65 /* CharacterTableViewCell.swift in Sources */,
 				8D13F5452663E320004DE433 /* AppConfiguration.swift in Sources */,
+				8D2594AF266E52700024E472 /* CharacterCellViewModel.swift in Sources */,
 				8D13F50726636690004DE433 /* CharacterListTableViewController.swift in Sources */,
 				8D25BC00266CAF2F00BC506D /* CharacterListViewModel.swift in Sources */,
 				8D13F5572663E542004DE433 /* Endpoints.swift in Sources */,
@@ -542,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -597,7 +601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

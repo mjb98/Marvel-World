@@ -33,7 +33,7 @@ class CharacterListTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         if dataSource == nil {
             dataSource = .init(tableView: tableView)
-            dataSource?.update(with: [])
+            dataSource?.update(with: [], storageController: viewModel.favouritesStorageController)
         }
     }
     
@@ -52,15 +52,15 @@ class CharacterListTableViewController: UITableViewController {
             guard let self = self else {
                 return
             }
-            self.dataSource?.update(with: characters, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
+            self.dataSource?.update(with: characters, storageController: self.viewModel.favouritesStorageController, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
         }.store(in: &viewModel.cancelables)
         
         viewModel.$networkError.compactMap { $0 }.receive(on: RunLoop.main).sink { [weak self] error in
             guard let self = self else {
                 return
             }
-            self.dataSource?.setError(characters: self.viewModel.characters, error: error, retryAction: .init(handler: { _ in
-                self.dataSource?.update(with: self.viewModel.characters, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
+            self.dataSource?.setError(characters: self.viewModel.characters, storageController: self.viewModel.favouritesStorageController, error: error, retryAction: .init(handler: { _ in
+                self.dataSource?.update(with: self.viewModel.characters, storageController: self.viewModel.favouritesStorageController, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
                 
             }))
             
@@ -73,10 +73,11 @@ class CharacterListTableViewController: UITableViewController {
         tableView.register(RetryCell.self, forCellReuseIdentifier: "RetryCell")
         let nib = UINib(nibName: "CharacterTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CharacterTableViewCell")
+        tableView.keyboardDismissMode = .onDrag
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.section == 0 ? 100 : 50
+        indexPath.section == 0 ? 80 : 50
     }
     
 }
@@ -127,24 +128,6 @@ class RetryCell: BindableTableViewCell {
         retryButton.addAction(data, for: .touchUpInside)
     }
     
-    
-}
-
-class CharacterCell: BindableTableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        imageView?.image = UIImage(named: "riskBannerIcon")
-        imageView?.frame = .init(x: 0, y: 0, width: 500, height: 200)
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func bind(data: Character) {
-        textLabel?.text = data.name
-    }
     
 }
 

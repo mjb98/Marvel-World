@@ -23,9 +23,11 @@ class CharacterListViewModel: ObservableObject {
     
     var cancelables =  Set<AnyCancellable>()
     var isMoreDataAvailable = true
+    let favouritesStorageController: FavouritesStroageController
     
-    init(characterLoader: CharacterLoader = NetworkCharacterLoader()) {
+    init(characterLoader: CharacterLoader = NetworkCharacterLoader(), favouritesStorageController: FavouritesStroageController = .init()) {
         self.characterLoader = characterLoader
+        self.favouritesStorageController = favouritesStorageController
     }
   
     func fetchCharacters() {
