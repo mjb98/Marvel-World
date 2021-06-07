@@ -10,5 +10,6 @@ import Foundation
 struct Character: Codable, Identifiable, Hashable {
     let id: Int
     let name: String
+    let thumbnail: Image?
 
 }

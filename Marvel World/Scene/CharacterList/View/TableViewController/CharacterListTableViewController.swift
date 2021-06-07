@@ -63,9 +63,14 @@ class CharacterListTableViewController: UITableViewController {
     
     private func prepareTableView() {
         tableView.delegate = self
-        tableView.register(CharacterCell.self, forCellReuseIdentifier: "CharacterCell")
         tableView.register(LoadingCell.self, forCellReuseIdentifier: "LoadingCell")
         tableView.register(RetryCell.self, forCellReuseIdentifier: "RetryCell")
+        let nib = UINib(nibName: "CharacterTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "CharacterTableViewCell")
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        indexPath.section == 0 ? 100 : 50
     }
     
 }
@@ -124,6 +129,16 @@ class RetryCell: BindableTableViewCell {
 }
 
 class CharacterCell: BindableTableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        imageView?.image = UIImage(named: "riskBannerIcon")
+        imageView?.frame = .init(x: 0, y: 0, width: 500, height: 200)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func bind(data: Character) {
         textLabel?.text = data.name
@@ -138,3 +153,4 @@ extension Sequence where Element: Hashable {
         return filter { set.insert($0).inserted }
     }
 }
+

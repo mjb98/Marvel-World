@@ -51,7 +51,7 @@ extension CharacterListDiffableDataSource {
                 
                 switch wrapper {
                 case .characterCell(let character):
-                    let cell = wrapper.dequeCell(in: tableView, indexPath: indexPath, for: CharacterCell.self)
+                    let cell = wrapper.dequeCell(in: tableView, indexPath: indexPath, for: CharacterTableViewCell.self)
                     cell.bind(data: character)
                     return cell
                 case .loadingCell:
@@ -84,7 +84,7 @@ extension CharacterListDiffableDataSource {
         var reuseIdentifer: String {
             switch self {
             case .characterCell:
-                return "CharacterCell"
+                return "CharacterTableViewCell"
             case .loadingCell:
                 return "LoadingCell"
             case .retryCell:
@@ -102,15 +102,5 @@ extension CharacterListDiffableDataSource {
     
 }
 
-protocol Bindable {
-    associatedtype T
-    func bind(data: T)
-}
-extension Bindable {
-    func bind(data: T) {
-        
-    }
-}
 
-typealias BindableTableViewCell = Bindable & UITableViewCell
 
