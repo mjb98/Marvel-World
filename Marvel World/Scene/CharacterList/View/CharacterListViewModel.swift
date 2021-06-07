@@ -11,6 +11,8 @@ import Foundation
 class CharacterListViewModel: ObservableObject {
     @Published  var characters: [Character] = []
     @Published  var networkError: Error?
+    @Published var isSearchBarHidden = false
+    @Published var navigationTitle = "Characters"
     
     private let characterLoader: CharacterLoader
     private var queryText: String? {
@@ -61,4 +63,20 @@ class CharacterListViewModel: ObservableObject {
         }
         
     }
+    
+    func showFavouriteCharacters() {
+        navigationTitle = "Favourite Characters"
+        isMoreDataAvailable = false
+        isSearchBarHidden = true
+        characters = favouritesStorageController.fetchAll()
+    }
+    
+    func hideFavouriteCharacters() {
+        navigationTitle = "Characters"
+        isMoreDataAvailable = true
+        isSearchBarHidden = false
+        characters = []
+    }
+    
+    
 }

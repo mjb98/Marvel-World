@@ -15,7 +15,6 @@ class CharacterListDiffableDataSource {
     
     init(tableView: UITableView) {
         self.dataSource = makeDataSource(tableView: tableView)
-        
     }
     
     func update(with list: [Character],storageController: FavouritesStroageController, isMoreDataAvailable: Bool = true) {

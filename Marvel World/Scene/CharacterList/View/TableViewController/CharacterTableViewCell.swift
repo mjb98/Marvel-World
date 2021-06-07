@@ -26,11 +26,6 @@ class CharacterTableViewCell: BindableTableViewCell {
         favouriteButton.isSelected =  viewModel.isFavourited
     }
   
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
     func bind(data: CharacterCellViewModel) {
         self.viewModel = data
         titleLabel.text = data.title
@@ -40,7 +35,6 @@ class CharacterTableViewCell: BindableTableViewCell {
         favouriteButton.isSelected = viewModel.isFavourited
       
     }
-    
     
     override func prepareForReuse() {
         thumbnailImageView.image = nil

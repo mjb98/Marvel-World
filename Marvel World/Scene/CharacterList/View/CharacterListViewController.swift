@@ -23,6 +23,7 @@ class CharacterListViewController: UIViewController {
         add(child: tableViewController, container: superheroesListContainer)
         setupSearchBarListeners()
         setupSearchController()
+        bind()
     }
     
     init(viewModel: CharacterListViewModel = .init()) {
@@ -48,6 +49,22 @@ class CharacterListViewController: UIViewController {
             }.store(in: &viewModel.cancelables)
     }
     
+    private func bind() {
+        viewModel.$isSearchBarHidden
+            .receive(on: RunLoop.main)
+            .dropFirst()
+            .assign(to: \.isHidden, on: searchController.searchBar)
+            .store(in: &viewModel.cancelables)
+        
+        viewModel.$navigationTitle
+            .receive(on: RunLoop.main)
+            .dropFirst()
+            .compactMap {$0}
+            .assign(to: \.title, on: navigationItem)
+            .store(in: &viewModel.cancelables)
+            
+    }
+    
     
 }
 
@@ -62,14 +79,20 @@ extension CharacterListViewController {
         definesPresentationContext = true
         navigationItem.searchController = searchController
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Characters"
-        navigationItem.rightBarButtonItem = .init(image: UIImage(named: "like"), style: .done, target: self, action: #selector(change))
+        navigationItem.title = viewModel.navigationTitle
+        navigationItem.rightBarButtonItem = .init(image: UIImage(named: "like"), style: .done, target: self, action: #selector(showFavouriteCharacterList))
         
         
     }
     @objc
-    func change() {
-        navigationItem.rightBarButtonItem = .init(image: UIImage(named: "likeFilled")?.withRenderingMode(.alwaysOriginal), style: .done, target: nil, action: nil)
+    func showFavouriteCharacterList() {
+        navigationItem.rightBarButtonItem = .init(image: UIImage(named: "likeFilled")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(hideFavouriteCharacterList))
+        viewModel.showFavouriteCharacters()
+    }
+    @objc
+    func hideFavouriteCharacterList() {
+        navigationItem.rightBarButtonItem = .init(image: UIImage(named: "like"), style: .done, target: self, action: #selector(showFavouriteCharacterList))
+        viewModel.hideFavouriteCharacters()
     }
 }
 
