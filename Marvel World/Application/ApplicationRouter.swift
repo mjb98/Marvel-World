@@ -14,7 +14,7 @@ class ApplicationRouter: Router {
     func route(to routeID: String, from context: UIViewController, parameters: [DataSourceKey : Any]?) {
         if routeID == Route.characterList.rawValue {
         let characterLoader = NetworkCharacterLoader()
-        let storageController = FavouritesStroageController()
+        let storageController = FavouritesFileStroageController()
         let destinationViewModel = CharacterListViewModel(characterLoader: characterLoader, favouritesStorageController: storageController)
         let destinationViewController = CharacterListViewController(viewModel: destinationViewModel)
         if let navigationController = context as? UINavigationController {

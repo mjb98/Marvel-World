@@ -29,10 +29,10 @@ class CharacterListViewModel: ObservableObject {
     var cancelables =  Set<AnyCancellable>()
     var isMoreDataAvailable = true
     var searchbarPlaceHolder: String = "Search..."
-    let favouritesStorageController: FavouritesStroageController
+    let favouritesStorageController: FavouriteStorageController
     
     // MARK: - Initilizer
-    init(characterLoader: CharacterLoader, favouritesStorageController: FavouritesStroageController) {
+    init(characterLoader: CharacterLoader, favouritesStorageController: FavouriteStorageController) {
         self.characterLoader = characterLoader
         self.favouritesStorageController = favouritesStorageController
     }
@@ -46,8 +46,7 @@ class CharacterListViewModel: ObservableObject {
                 case .success(let response):
                     characters.append(contentsOf: response.results)
                     isMoreDataAvailable = response.total > characters.count
-                    print(isMoreDataAvailable)
-                    
+                
                 case .failure(let error):
                     networkError = error
                 }

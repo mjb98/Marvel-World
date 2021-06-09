@@ -9,7 +9,7 @@ import Foundation
 
 class CharacterViewModel {
     // MARK: - Private Properties
-    private let favouriteStroageController: FavouritesStroageController
+    private let favouriteStroageController: FavouriteStorageController
     // MARK: - Public Properties
     let character: Character
     
@@ -34,7 +34,7 @@ class CharacterViewModel {
         favouriteStroageController.contains(character)
     }
     // MARK: - Initilize
-    init(character: Character, favouriteStroageController: FavouritesStroageController) {
+    init(character: Character, favouriteStroageController: FavouriteStorageController) {
         self.favouriteStroageController = favouriteStroageController
         self.character = character
     }

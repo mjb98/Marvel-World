@@ -18,7 +18,7 @@ class CharacterListDiffableDataSource {
         self.dataSource = makeDataSource(tableView: tableView)
     }
     // MARK: - DataSoure Update
-    func update(with list: [Character],storageController: FavouritesStroageController, isMoreDataAvailable: Bool = true) {
+    func update(with list: [Character],storageController: FavouriteStorageController, isMoreDataAvailable: Bool = true) {
         var snapshot =  createSnapShot(with: list, stroageController: storageController)
         if isMoreDataAvailable {
             snapshot.appendItems([CellWrapper.loadingCell], toSection: .loading)
@@ -31,13 +31,13 @@ class CharacterListDiffableDataSource {
         
     }
     
-    func setError(characters: [Character],storageController: FavouritesStroageController, error: Error, retryAction: UIAction) {
+    func setError(characters: [Character],storageController: FavouriteStorageController, error: Error, retryAction: UIAction) {
         var snapshot =  createSnapShot(with: characters, stroageController: storageController)
         snapshot.appendItems([CellWrapper.retryCell(action: retryAction)], toSection: .Retry)
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
-    private func createSnapShot(with list: [Character], stroageController: FavouritesStroageController) -> NSDiffableDataSourceSnapshot<Section, CellWrapper> {
+    private func createSnapShot(with list: [Character], stroageController: FavouriteStorageController) -> NSDiffableDataSourceSnapshot<Section, CellWrapper> {
         var snapshot = NSDiffableDataSourceSnapshot<Section, CellWrapper>()
         snapshot.appendSections(Section.allCases)
         let characters = list.uniqued().map { character in

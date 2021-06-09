@@ -7,17 +7,16 @@
 
 import Foundation
 
-protocol StorageController: class {
-    associatedtype T: Codable
-    func save(_ : [T])
-    func fetchAll() -> [T]
+protocol FavouriteStorageController: class {
+    func save(_ : [Character])
+    func fetchAll() -> [Character]
     func removeAll()
-    func add(_ : T)
-    func remove(_ : T)
-    func contains(_ : T) -> Bool
+    func add(_ : Character)
+    func remove(_ : Character)
+    func contains(_ : Character) -> Bool
 }
 
-class FavouritesStroageController: StorageController {
+class FavouritesFileStroageController: FavouriteStorageController {
     
     private let documentsDirectoryURL = FileManager.default
         .urls(for: .documentDirectory, in: .userDomainMask)

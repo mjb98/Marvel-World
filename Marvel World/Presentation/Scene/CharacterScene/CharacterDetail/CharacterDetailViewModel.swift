@@ -20,10 +20,10 @@ class CharacterDetailViewModel {
     let character: Character
     var availableAppearnces: [AppearanceType] = []
     var cancelables =  Set<AnyCancellable>()
-    let favouritesStorageController: FavouritesStroageController
+    let favouritesStorageController: FavouriteStorageController
     
     // MARK: - Intilize
-    init(character: Character,favouritesStorageController:  FavouritesStroageController ) {
+    init(character: Character,favouritesStorageController:  FavouriteStorageController ) {
         self.character = character
         self.favouritesStorageController = favouritesStorageController
         availableAppearnces = setUpAvailableAppearnces(character: character)
