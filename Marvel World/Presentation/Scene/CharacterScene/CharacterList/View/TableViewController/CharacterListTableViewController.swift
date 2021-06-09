@@ -74,6 +74,7 @@ class CharacterListTableViewController: UITableViewController {
         tableView.registerNib(CharacterTableViewCell.self)
         tableView.register(LoadingTableViewCell.self)
         tableView.register(RetryTableViewCell.self)
+        tableView.register(NoDataAvailableTableViewCell.self)
         tableView.keyboardDismissMode = .onDrag
         tableView.separatorStyle = .none
     }

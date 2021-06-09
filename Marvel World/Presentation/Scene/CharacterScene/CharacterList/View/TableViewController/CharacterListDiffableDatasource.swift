@@ -22,6 +22,10 @@ class CharacterListDiffableDataSource {
         var snapshot =  createSnapShot(with: list, stroageController: storageController)
         if isMoreDataAvailable {
             snapshot.appendItems([CellWrapper.loadingCell], toSection: .loading)
+        } else {
+            if list.isEmpty {
+                snapshot.appendItems([CellWrapper.noDataAvailable], toSection: .noDataAvailable)
+            }
         }
         dataSource?.apply(snapshot, animatingDifferences: false)
         
@@ -66,6 +70,8 @@ extension CharacterListDiffableDataSource {
                     let cell =  tableView.dequeueReusableCell(cell: RetryTableViewCell.self, at: indexPath)
                     cell.bind(data: action)
                     return cell
+                case .noDataAvailable:
+                   return tableView.dequeueReusableCell(cell: NoDataAvailableTableViewCell.self, at: indexPath)
                 }
                 
             }
@@ -79,11 +85,13 @@ extension CharacterListDiffableDataSource {
         case character
         case loading
         case Retry
+        case noDataAvailable
     }
     
     enum CellWrapper: Hashable {
         case characterCell(viewModel: CharacterViewModel)
         case loadingCell
+        case noDataAvailable
         case retryCell(action: UIAction)
         
     }

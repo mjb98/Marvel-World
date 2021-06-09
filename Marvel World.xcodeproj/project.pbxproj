@@ -56,6 +56,7 @@
 		8DA2A6ED266D127B000B8C65 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DA2A6EB266D127B000B8C65 /* CharacterTableViewCell.xib */; };
 		8DA2A6F2266D1A2B000B8C65 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2A6F1266D1A2B000B8C65 /* Image.swift */; };
 		8DA2A6F7266D426E000B8C65 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2A6F6266D426E000B8C65 /* ImageLoader.swift */; };
+		8DD57D3F2671388D00C16565 /* NodataAvailableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD57D3E2671388D00C16565 /* NodataAvailableTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		8DA2A6EB266D127B000B8C65 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		8DA2A6F1266D1A2B000B8C65 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8DA2A6F6266D426E000B8C65 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		8DD57D3E2671388D00C16565 /* NodataAvailableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodataAvailableTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +369,7 @@
 			children = (
 				8D2EAB672671220100A5FEC0 /* CharacterTableViewCell */,
 				8D2EAB6B2671224800A5FEC0 /* LoadingTableViewCell.swift */,
+				8DD57D3E2671388D00C16565 /* NodataAvailableTableViewCell.swift */,
 				8D2EAB702671226200A5FEC0 /* RetryTableViewCell.swift */,
 			);
 			path = Cells;
@@ -628,6 +631,7 @@
 				8DA2A6F7266D426E000B8C65 /* ImageLoader.swift in Sources */,
 				8D259498266DF0860024E472 /* Bindable.swift in Sources */,
 				8D2EAB9326712B1C00A5FEC0 /* ShowAppearanceCellViewModel.swift in Sources */,
+				8DD57D3F2671388D00C16565 /* NodataAvailableTableViewCell.swift in Sources */,
 				8D2594D9266E74370024E472 /* CharacterDetailViewController.swift in Sources */,
 				8D2EAB712671226200A5FEC0 /* RetryTableViewCell.swift in Sources */,
 				8D2EAB6C2671224800A5FEC0 /* LoadingTableViewCell.swift in Sources */,
