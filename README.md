@@ -7,6 +7,7 @@ This is a sample iOS 14+ UIKit project using:
 -  Diffable Data Sources
 -  Pagination
 -  Network layer with Combine
+-  Image memory management
 -  Dark Mode
 -  Dependency Injection
 -  Router for navigations
