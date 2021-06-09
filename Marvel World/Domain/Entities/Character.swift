@@ -9,7 +9,8 @@ import Foundation
 
 struct Character: Codable, Identifiable, Hashable {
     let id: Int
-    let name: String
+    let name, description: String?
     let thumbnail: Image?
+    let comics, stories, events, series: AppearanceSummaryList?
 
 }

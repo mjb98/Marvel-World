@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,28 +17,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="358" height="98"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-c1-KsM">
-                        <rect key="frame" x="16" y="24" width="281" height="50"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ol-XQ-8NU">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="UxG-gH-8Yj"/>
-                                    <constraint firstAttribute="width" constant="50" id="WkQ-l1-mzI"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3X-Px-9W0">
-                                <rect key="frame" x="66" y="0.0" width="215" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ol-XQ-8NU">
+                        <rect key="frame" x="0.0" y="0.0" width="358" height="98"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4L-7R-XSZ">
+                        <rect key="frame" x="0.0" y="63" width="358" height="35"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3X-Px-9W0">
+                        <rect key="frame" x="16" y="69" width="342" height="23.5"/>
+                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="0.0" bottom="8" trailing="8"/>
+                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Top-Od-KrM">
-                        <rect key="frame" x="313" y="8" width="25" height="25"/>
+                        <rect key="frame" x="313" y="68" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="UI6-3P-WxN"/>
                             <constraint firstAttribute="width" constant="25" id="tF4-BF-XWJ"/>
@@ -51,10 +47,19 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Top-Od-KrM" secondAttribute="trailing" constant="20" symbolic="YES" id="1cu-Wb-XJU"/>
-                    <constraint firstItem="K8V-c1-KsM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DZZ-iX-cwu"/>
-                    <constraint firstItem="K8V-c1-KsM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="IU6-OQ-lfc"/>
-                    <constraint firstItem="Top-Od-KrM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="e25-Jk-f2e"/>
-                    <constraint firstItem="Top-Od-KrM" firstAttribute="leading" secondItem="K8V-c1-KsM" secondAttribute="trailing" constant="16" id="ugE-e4-8zm"/>
+                    <constraint firstAttribute="bottom" secondItem="T4L-7R-XSZ" secondAttribute="bottom" id="3M1-Su-SIK"/>
+                    <constraint firstItem="Top-Od-KrM" firstAttribute="centerY" secondItem="T4L-7R-XSZ" secondAttribute="centerY" id="6V9-nX-L8L"/>
+                    <constraint firstItem="2Ol-XQ-8NU" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="8L1-rc-oBq"/>
+                    <constraint firstAttribute="trailing" secondItem="H3X-Px-9W0" secondAttribute="trailing" id="JB7-Yd-06Y"/>
+                    <constraint firstItem="2Ol-XQ-8NU" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="PTa-uf-3oN"/>
+                    <constraint firstItem="2Ol-XQ-8NU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Y2n-dw-Qbv"/>
+                    <constraint firstItem="H3X-Px-9W0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="bcb-4w-8Xl"/>
+                    <constraint firstItem="T4L-7R-XSZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fN4-Hj-QaW"/>
+                    <constraint firstItem="T4L-7R-XSZ" firstAttribute="height" secondItem="H3X-Px-9W0" secondAttribute="height" multiplier="1.48936" id="jJ5-hr-WM8"/>
+                    <constraint firstItem="H3X-Px-9W0" firstAttribute="centerY" secondItem="T4L-7R-XSZ" secondAttribute="centerY" id="jOE-05-Phj"/>
+                    <constraint firstAttribute="trailing" secondItem="T4L-7R-XSZ" secondAttribute="trailing" id="o8c-p1-tNR"/>
+                    <constraint firstItem="2Ol-XQ-8NU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oZ6-82-dPI"/>
+                    <constraint firstItem="2Ol-XQ-8NU" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="quC-fR-c8J"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -69,5 +74,8 @@
     <resources>
         <image name="like" width="19" height="18"/>
         <image name="likeFilled" width="19" height="18"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

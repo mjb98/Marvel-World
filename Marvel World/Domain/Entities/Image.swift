@@ -14,9 +14,9 @@ struct Image: Codable,Identifiable, Hashable {
     var id: String {
         "\(path)\(`extension`)"
     }
-
+    
     var url: URL? { URL(string: "\(path).\(`extension`)") }
-
+    
     init(path: String, extension: String) {
         self.path = path
         self.extension = `extension`

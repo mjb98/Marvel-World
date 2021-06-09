@@ -13,7 +13,7 @@ class CharacterCellViewModel {
     let character: Character
     
     var title: String {
-        character.name
+        character.name ?? ""
     }
     
     var imageUrl: URL? {

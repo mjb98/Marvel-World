@@ -16,7 +16,6 @@ class CharacterListTableViewController: UITableViewController {
         self.viewModel = viewModel
         super.init(style: .plain)
         
-        
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +54,9 @@ class CharacterListTableViewController: UITableViewController {
             self.dataSource?.update(with: characters, storageController: self.viewModel.favouritesStorageController, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
         }.store(in: &viewModel.cancelables)
         
-        viewModel.$networkError.compactMap { $0 }.receive(on: RunLoop.main).sink { [weak self] error in
+        viewModel.$networkError.compactMap { $0 }
+            .receive(on: RunLoop.main)
+            .sink { [weak self] error in
             guard let self = self else {
                 return
             }
@@ -74,11 +75,22 @@ class CharacterListTableViewController: UITableViewController {
         let nib = UINib(nibName: "CharacterTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CharacterTableViewCell")
         tableView.keyboardDismissMode = .onDrag
+        tableView.separatorStyle = .none
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.section == 0 ? 80 : 50
+        indexPath.section == 0 ? 150 : 50
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let character = viewModel.characters[indexPath.row]
+            let vc = CharacterDetailViewController(character: character)
+            vc.title = character.name
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
 }
 

@@ -8,12 +8,7 @@
 import UIKit
 
 class CharacterTableViewCell: BindableTableViewCell {
-    @IBOutlet weak var thumbnailImageView: UIImageView! {
-        didSet {
-            thumbnailImageView.layer.cornerRadius = 25
-            
-        }
-    }
+    @IBOutlet weak var thumbnailImageView: UIImageView! 
     @IBOutlet weak var titleLabel: UILabel! 
     @IBOutlet weak var labelBackgroundView: UIView!
     @IBOutlet weak var favouriteButton: UIButton!

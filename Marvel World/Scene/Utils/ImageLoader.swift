@@ -10,7 +10,7 @@ import UIKit
 class ImageLoader {
     private var loadedImages = [URL: UIImage]()
     private var runningRequests = [UUID: URLSessionDataTask]()
-    func loadImage(_ url: URL,pointSize: CGSize, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
+    func loadImage(_ url: URL, pointSize: CGSize, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
         
         // 1
         if let image = loadedImages[url] {

@@ -31,7 +31,7 @@ class CharacterListViewModel: ObservableObject {
         self.characterLoader = characterLoader
         self.favouritesStorageController = favouritesStorageController
     }
-  
+    
     func fetchCharacters() {
         characterLoader.loadCharacters(offset: characters.count, query: self.queryText)
             .receive(on: RunLoop.main)
@@ -40,7 +40,7 @@ class CharacterListViewModel: ObservableObject {
                 case .success(let response):
                     characters.append(contentsOf: response.results)
                     isMoreDataAvailable = response.total > characters.count
-                     print(isMoreDataAvailable)
+                    print(isMoreDataAvailable)
                     
                 case .failure(let error):
                     networkError = error
@@ -48,7 +48,7 @@ class CharacterListViewModel: ObservableObject {
             }.store(in: &cancelables)
     }
     
-   
+    
     func didSearch(query: String) {
         isMoreDataAvailable = true
         self.queryText = query
