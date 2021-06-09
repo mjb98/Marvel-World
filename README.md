@@ -1,7 +1,5 @@
 # Marvel World
 
-Foobar is a Python library for dealing with word pluralization.
-
 This is a sample iOS 14+ UIKit project using:
 
 -  Combine
