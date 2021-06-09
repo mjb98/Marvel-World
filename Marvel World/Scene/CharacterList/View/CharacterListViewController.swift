@@ -11,15 +11,16 @@ import UIKit
 class CharacterListViewController: UIViewController {
     @IBOutlet private weak var superheroesListContainer: UIView!
     
-    private var viewModel: CharacterListViewModel
+    private let viewModel: CharacterListViewModel
+    private let router: Router
     private var tableViewController: CharacterListTableViewController!
     private var searchController = UISearchController(searchResultsController: nil)
- 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableViewController = .init(viewModel: viewModel)
+        tableViewController = .init(viewModel: viewModel, router: router)
         add(child: tableViewController, container: superheroesListContainer)
         setupSearchBarListeners()
         setupSearchController()
@@ -28,8 +29,9 @@ class CharacterListViewController: UIViewController {
     
     init(viewModel: CharacterListViewModel = .init()) {
         self.viewModel = viewModel
+        self.router = CharacterListRouter(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
-
+        
     }
     
     required init?(coder: NSCoder) {
@@ -40,8 +42,8 @@ class CharacterListViewController: UIViewController {
         let publisher = NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: searchController.searchBar.searchTextField)
         publisher
             .map {
-            ($0.object as! UISearchTextField).text
-        }
+                ($0.object as! UISearchTextField).text
+            }
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .sink { (str) in
                 guard let query = str else  { return }
@@ -62,7 +64,7 @@ class CharacterListViewController: UIViewController {
             .compactMap {$0}
             .assign(to: \.title, on: navigationItem)
             .store(in: &viewModel.cancelables)
-            
+        
     }
     
     
@@ -100,7 +102,7 @@ extension CharacterListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         searchController.isActive = false
-  
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -9,11 +9,17 @@ import Combine
 import UIKit
 
 class CharacterListTableViewController: UITableViewController {
-    private var viewModel: CharacterListViewModel
+    enum Route: String {
+        case characterDetail
+    }
+    
+    private let viewModel: CharacterListViewModel
+    private let router: Router
     
     
-    init(viewModel: CharacterListViewModel) {
+    init(viewModel: CharacterListViewModel, router: Router) {
         self.viewModel = viewModel
+        self.router = router
         super.init(style: .plain)
         
     }
@@ -57,15 +63,15 @@ class CharacterListTableViewController: UITableViewController {
         viewModel.$networkError.compactMap { $0 }
             .receive(on: RunLoop.main)
             .sink { [weak self] error in
-            guard let self = self else {
-                return
-            }
-            self.dataSource?.setError(characters: self.viewModel.characters, storageController: self.viewModel.favouritesStorageController, error: error, retryAction: .init(handler: { _ in
-                self.dataSource?.update(with: self.viewModel.characters, storageController: self.viewModel.favouritesStorageController, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
+                guard let self = self else {
+                    return
+                }
+                self.dataSource?.setError(characters: self.viewModel.characters, storageController: self.viewModel.favouritesStorageController, error: error, retryAction: .init(handler: { _ in
+                    self.dataSource?.update(with: self.viewModel.characters, storageController: self.viewModel.favouritesStorageController, isMoreDataAvailable: self.viewModel.isMoreDataAvailable)
+                    
+                }))
                 
-            }))
-            
-        }.store(in: &viewModel.cancelables)
+            }.store(in: &viewModel.cancelables)
     }
     
     private func prepareTableView() {
@@ -85,9 +91,7 @@ class CharacterListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let character = viewModel.characters[indexPath.row]
-            let vc = CharacterDetailViewController(viewModel: .init(character: character))
-            vc.title = character.name
-            navigationController?.pushViewController(vc, animated: true)
+            router.route(to: Route.characterDetail.rawValue, from: self, parameters: [DataSourceKey.character : character])
         }
     }
     
