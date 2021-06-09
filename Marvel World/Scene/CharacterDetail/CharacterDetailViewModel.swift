@@ -14,7 +14,7 @@ class CharacterDetailViewModel {
     var availableAppearnces: [AppearanceType] = []
     var cancelables =  Set<AnyCancellable>()
     
-    var appearancesFetched = PassthroughSubject<[Appearance], Error>()
+    var appearancesFetched = PassthroughSubject<(list: [Appearance], type: AppearanceType), Error>()
     @Published var isLoading = false
     
     init(character: Character ) {
@@ -46,7 +46,7 @@ class CharacterDetailViewModel {
                 self?.isLoading = false
                 switch result {
                 case .success(let data):
-                    self?.appearancesFetched.send(data.results)
+                    self?.appearancesFetched.send((list: data.results, type: type))
                 case .failure(let error):
                     self?.appearancesFetched.send(completion: .failure(error))
                 }

@@ -29,7 +29,8 @@ class CharacterListRouter: Router {
     
     private func routeToCharacterDetail(character: Character, context: UIViewController) {
         let destinationViewModel = CharacterDetailViewModel(character: character)
-        let destinationViewController = CharacterDetailViewController(viewModel: destinationViewModel)
+        let destinationRouter = CharacterDetailRouter(viewModel: destinationViewModel)
+        let destinationViewController = CharacterDetailViewController(viewModel: destinationViewModel, router: destinationRouter)
         destinationViewController.title = character.name
         context.navigationController?.pushViewController(destinationViewController, animated: true)
     }

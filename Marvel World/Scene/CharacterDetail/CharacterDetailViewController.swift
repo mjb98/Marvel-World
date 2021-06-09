@@ -9,8 +9,14 @@ import Combine
 import UIKit
 
 class CharacterDetailViewController: UITableViewController {
+    
+    enum Route: String {
+        case appearancelist
+    }
+    
     private var can = Set<AnyCancellable>()
     let viewModel: CharacterDetailViewModel
+    let router: Router
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,8 +29,9 @@ class CharacterDetailViewController: UITableViewController {
     }
     
     
-    init(viewModel: CharacterDetailViewModel) {
+    init(viewModel: CharacterDetailViewModel, router: Router) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,9 +54,13 @@ class CharacterDetailViewController: UITableViewController {
             }.store(in: &viewModel.cancelables)
         
         viewModel.appearancesFetched.receive(on: RunLoop.main)
-            .sinkToResult { res in
+            .sinkToResult { [weak self] res in
+                guard let self = self else {
+                    return
+                }
                 switch res {
                 case .success(let data) :
+                    self.router.route(to: Route.appearancelist.rawValue, from: self, parameters: [DataSourceKey.appearanceList : data.list, .appearanceType: data.type])
                 break
                 case .failure(let error):
                     break

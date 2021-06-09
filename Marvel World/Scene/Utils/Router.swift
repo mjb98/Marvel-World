@@ -19,4 +19,6 @@ protocol Router {
 
 enum DataSourceKey: String {
     case character
+    case appearanceList
+    case appearanceType
 }
