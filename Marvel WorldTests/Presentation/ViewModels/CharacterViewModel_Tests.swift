@@ -20,7 +20,5 @@ class CharacterViewModel_Tests: XCTestCase {
         XCTAssert(isFavouried != sut.isFavourited)
     }
     
-  
-    
- 
+
 }

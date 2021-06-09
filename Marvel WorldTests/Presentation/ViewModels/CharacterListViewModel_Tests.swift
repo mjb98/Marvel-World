@@ -64,7 +64,6 @@ class CharacterListViewModel_Tests: XCTestCase {
         XCTAssert(sut.characters.isEmpty)
     }
 
-    
 }
 
 
