@@ -25,6 +25,7 @@ class CharacterListViewController: UIViewController {
         add(child: tableViewController, container: superheroesListContainer)
         setupSearchBarListeners()
         setupSearchController()
+        setUpNavigationView()
         bind()
     }
     

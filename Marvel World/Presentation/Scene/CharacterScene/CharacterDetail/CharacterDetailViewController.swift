@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-class CharacterDetailViewController: UITableViewController {
+class CharacterDetailViewController: UITableViewController, Alertable {
     // MARK: - Routing
     enum Route: String {
         case appearancelist
@@ -63,7 +63,7 @@ class CharacterDetailViewController: UITableViewController {
                     self.router.route(to: Route.appearancelist.rawValue, from: self, parameters: [DataSourceKey.appearanceList : data.list, .appearanceType: data.type])
                     break
                 case .failure(let error):
-                    break
+                    self.showAlert(message: error.localizedDescription)
                 }
             }.store(in: &viewModel.cancelables)
         
