@@ -32,7 +32,7 @@ class CharacterListViewModel: ObservableObject {
     let favouritesStorageController: FavouritesStroageController
     
     // MARK: - Initilizer
-    init(characterLoader: CharacterLoader = NetworkCharacterLoader(), favouritesStorageController: FavouritesStroageController = .init()) {
+    init(characterLoader: CharacterLoader, favouritesStorageController: FavouritesStroageController) {
         self.characterLoader = characterLoader
         self.favouritesStorageController = favouritesStorageController
     }

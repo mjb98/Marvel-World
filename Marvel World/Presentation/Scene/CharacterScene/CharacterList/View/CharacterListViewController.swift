@@ -30,7 +30,7 @@ class CharacterListViewController: UIViewController {
     }
     
     // MARK: - Initilizer
-    init(viewModel: CharacterListViewModel = .init()) {
+    init(viewModel: CharacterListViewModel) {
         self.viewModel = viewModel
         self.router = CharacterListRouter(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)

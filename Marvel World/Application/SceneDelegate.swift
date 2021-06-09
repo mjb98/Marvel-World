@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    var router: Router?
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController(rootViewController: CharacterListViewController())
+        self.router = ApplicationRouter()
+        let navigationController = UINavigationController()
+        router?.route(to: ApplicationRouter.Route.characterList.rawValue, from: navigationController, parameters: nil)
         window.rootViewController = navigationController
         self.window = window
         window.makeKeyAndVisible()

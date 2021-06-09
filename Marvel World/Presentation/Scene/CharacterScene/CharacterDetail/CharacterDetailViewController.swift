@@ -93,7 +93,7 @@ extension CharacterDetailViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == Section.header.sectionIndex {
             let cell =  tableView.dequeueReusableCell(cell: CharacterHeaderTableViewCell.self, at: indexPath)
-            cell.bind(data: .init(character: viewModel.character, favouriteStroageController: .init()))
+            cell.bind(data: .init(character: viewModel.character, favouriteStroageController: viewModel.favouritesStorageController))
             return cell
         }
         else {
