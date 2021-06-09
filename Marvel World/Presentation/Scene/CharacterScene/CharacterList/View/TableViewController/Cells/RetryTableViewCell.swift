@@ -29,6 +29,7 @@ class RetryTableViewCell: BindableTableViewCell {
         retryButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         retryButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         retryButton.setTitle("Retry", for: .normal)
+        retryButton.setImage(UIImage(named: "retry"), for: .normal)
         retryButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         retryButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         retryButton.setTitleColor(.blue, for: .normal)
