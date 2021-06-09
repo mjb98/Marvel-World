@@ -50,7 +50,7 @@ class CharacterDetailViewController: UITableViewController {
             .sinkToResult { res in
                 switch res {
                 case .success(let data) :
-                    self.navigationController?.pushViewController(AppearanceListTableViewController(appearances: data), animated: true)
+                break
                 case .failure(let error):
                     break
                 }
