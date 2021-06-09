@@ -7,10 +7,10 @@
 
 import Foundation
 
-protocol Appearance: Identifiable {
-    var id: Int { get }
-    var title: String? { get }
-    var thumbnail: Image? { get }
+struct Appearance: Codable, Identifiable {
+    var id: Int
+    var title, description: String?
+    var thumbnail: Image?
 }
 
 struct AppearanceSummary: Codable, Equatable, Hashable {

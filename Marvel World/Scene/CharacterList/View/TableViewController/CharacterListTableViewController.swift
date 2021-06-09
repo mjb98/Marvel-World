@@ -85,7 +85,7 @@ class CharacterListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let character = viewModel.characters[indexPath.row]
-            let vc = CharacterDetailViewController(character: character)
+            let vc = CharacterDetailViewController(viewModel: .init(character: character))
             vc.title = character.name
             navigationController?.pushViewController(vc, animated: true)
         }

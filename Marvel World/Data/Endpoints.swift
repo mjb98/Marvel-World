@@ -16,3 +16,11 @@ extension Endpoint where Response == ResponseData<[Character]> {
         return Endpoint(path: "v1/public/characters", queryItems: queryItems)
     }
 }
+
+
+extension Endpoint where Response == ResponseData<[Appearance]> {
+    static func getAppearances(type: AppearanceType, characterID: String, limit: Int = 3) -> Self {
+        let queryItems = [URLQueryItem(name: "limit", value: "\(limit)")]
+        return Endpoint(path: "v1/public/characters/\(characterID)/\(type)", queryItems: queryItems)
+    }
+}

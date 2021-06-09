@@ -5,26 +5,26 @@
 //  Created by Mohammad Javad Bashtani on 3/17/1400 AP.
 //
 
+import Combine
 import UIKit
 
 class CharacterDetailViewController: UITableViewController {
-    let character: Character
+    private var can = Set<AnyCancellable>()
+    let viewModel: CharacterDetailViewModel
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let nib = UINib(nibName: "HeaderTableViewCell", bundle: nil)
+        
+        let nib = UINib(nibName: "CharacterHeaderTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "HeaderTableViewCell")
         tableView.register(AppearanceCell.self, forCellReuseIdentifier: "1")
         tableView.separatorStyle = .none
+        bind()
         
-       
-     
     }
     
-    let types = AppearanceType.allCases
     
-    init(character: Character) {
-        self.character = character
+    init(viewModel: CharacterDetailViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,31 +33,49 @@ class CharacterDetailViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        2
+        Section.allCases.count
+    }
+    
+    private func bind() {
+        viewModel.$isLoading
+            .receive(on: RunLoop.main)
+            .dropFirst()
+            .sink { isLoading in
+                isLoading ? LoadingView.show(on: self) : LoadingView.hide()
+            }.store(in: &viewModel.cancelables)
+        
+        viewModel.appearancesFetched.receive(on: RunLoop.main)
+            .sinkToResult { res in
+                switch res {
+                case .success(let data) :
+                    self.navigationController?.pushViewController(AppearanceListTableViewController(appearances: data), animated: true)
+                case .failure(let error):
+                    break
+                }
+            }.store(in: &viewModel.cancelables)
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "HeaderTableViewCell", for: indexPath) as! HeaderTableViewCell
-            cell.configure(with: character)
+        if indexPath.section == Section.header.sectionIndex {
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "HeaderTableViewCell", for: indexPath) as! CharacterHeaderTableViewCell
+            cell.configure(with: viewModel.character)
             return cell
         }
-       else {
+        else {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "1", for: indexPath) as! AppearanceCell
-            cell.bind(data: .init(type: types[indexPath.row], buttonAction: {
-                
+            cell.bind(data: .init(type: viewModel.availableAppearnces[indexPath.row], buttonAction: {
+                self.viewModel.fetchAppearances(type:self.viewModel.availableAppearnces[indexPath.row]  )
             }))
             return cell
         }
-    
+        
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return section == 0 ? 1 : types.count
+        return section == 0 ? 1 : viewModel.availableAppearnces.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -67,8 +85,15 @@ class CharacterDetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         indexPath.section == 0 ? 800 : 50
     }
-
-   
+    enum Section: Int, CaseIterable {
+        case header
+        case appearanceList
+        
+        var sectionIndex: Int {
+            rawValue
+        }
+    }
+    
 }
 
 
@@ -80,7 +105,7 @@ class AppearanceCell: BindableTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUp()
         selectionStyle = .none
-
+        
     }
     
     private func setUp() {
@@ -90,9 +115,13 @@ class AppearanceCell: BindableTableViewCell {
         showAppearanceButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         showAppearanceButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         showAppearanceButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-       
-       
+        showAppearanceButton.titleLabel?.font = UIFont(name: "avenir", size: 16)
+        
+        
     }
+    
+    
+    
     
     
     required init?(coder: NSCoder) {
@@ -102,6 +131,9 @@ class AppearanceCell: BindableTableViewCell {
     func bind(data: AppearanceCellViewModel) {
         viewModel = data
         showAppearanceButton.setTitle(viewModel?.title, for: .normal)
+        showAppearanceButton.addAction(.init(handler: { _ in
+            data.buttonAction()
+        }), for: .touchUpInside)
         
     }
     
@@ -121,4 +153,15 @@ class AppearanceCellViewModel {
         self.type = type
     }
     
+    
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }

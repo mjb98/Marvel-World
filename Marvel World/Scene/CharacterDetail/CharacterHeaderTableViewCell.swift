@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderTableViewCell: UITableViewCell {
+class CharacterHeaderTableViewCell: UITableViewCell {
     // MARK: - Outlets
 
     @IBOutlet private var characterImageView: UIImageView!
@@ -25,7 +25,7 @@ class HeaderTableViewCell: UITableViewCell {
     }
 }
 
-extension HeaderTableViewCell {
+extension CharacterHeaderTableViewCell {
     func configure(with item:  Character) {
         if let url =  item.thumbnail?.url {
             characterImageView.loadImage(at: url)
