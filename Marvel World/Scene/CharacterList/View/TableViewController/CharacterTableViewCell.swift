@@ -13,7 +13,7 @@ class CharacterTableViewCell: BindableTableViewCell {
     @IBOutlet weak var labelBackgroundView: UIView!
     @IBOutlet weak var favouriteButton: UIButton!
  
-    private var viewModel: CharacterCellViewModel!
+    private var viewModel: CharacterViewModel!
     
     
     @IBAction func favouriteButtonTapped(_ sender: Any) {
@@ -21,7 +21,7 @@ class CharacterTableViewCell: BindableTableViewCell {
         favouriteButton.isSelected =  viewModel.isFavourited
     }
   
-    func bind(data: CharacterCellViewModel) {
+    func bind(data: CharacterViewModel) {
         self.viewModel = data
         titleLabel.text = data.title
         if let url = data.imageUrl {

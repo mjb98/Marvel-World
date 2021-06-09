@@ -31,7 +31,7 @@ class CharacterListViewController: UIViewController {
         self.viewModel = viewModel
         self.router = CharacterListRouter(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
-        
+    
     }
     
     required init?(coder: NSCoder) {

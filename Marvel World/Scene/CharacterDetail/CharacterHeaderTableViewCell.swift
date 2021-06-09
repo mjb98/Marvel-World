@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CharacterHeaderTableViewCell: UITableViewCell {
+class CharacterHeaderTableViewCell: BindableTableViewCell {
+    private var viewModel: CharacterViewModel!
     // MARK: - Outlets
 
     @IBOutlet private var characterImageView: UIImageView!
@@ -15,7 +16,7 @@ class CharacterHeaderTableViewCell: UITableViewCell {
     @IBOutlet private var nameValueLabel: UILabel!
     @IBOutlet private var descriptionTitleLabel: UILabel!
     @IBOutlet private var descriptionValueLabel: UILabel!
-
+    @IBOutlet private weak var favouriteButton: UIButton!
     // MARK: - LifeCycle
 
     required init?(coder aDecoder: NSCoder) {
@@ -23,15 +24,22 @@ class CharacterHeaderTableViewCell: UITableViewCell {
         self.selectionStyle = .none
      
     }
-}
-
-extension CharacterHeaderTableViewCell {
-    func configure(with item:  Character) {
-        if let url =  item.thumbnail?.url {
+    
+    @IBAction func favouriteButtonTapped(_ sender: Any) {
+        viewModel.modifyFavouriteState()
+        favouriteButton.isSelected =  viewModel.isFavourited
+    }
+    func bind(data viewModel:  CharacterViewModel) {
+        self.viewModel = viewModel
+        if let url =  viewModel.imageUrl {
             characterImageView.loadImage(at: url)
         }
-        nameValueLabel.text = item.name
-        descriptionValueLabel.text = item.description
-        descriptionTitleLabel.isHidden = (item.description ?? "").isEmpty
+        nameValueLabel.text = viewModel.title
+        descriptionValueLabel.text = viewModel.description
+        descriptionTitleLabel.isHidden = viewModel.isDescriptionEmpty
+        favouriteButton.isSelected = viewModel.isFavourited
     }
 }
+
+
+

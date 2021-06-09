@@ -81,7 +81,7 @@ extension CharacterListDiffableDataSource {
     }
     
     enum CellWrapper: Hashable {
-        case characterCell(viewModel: CharacterCellViewModel)
+        case characterCell(viewModel: CharacterViewModel)
         case loadingCell
         case retryCell(action: UIAction)
         

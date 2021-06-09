@@ -39,6 +39,8 @@ class CharacterDetailViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+   
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,13 +74,14 @@ class CharacterDetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == Section.header.sectionIndex {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "HeaderTableViewCell", for: indexPath) as! CharacterHeaderTableViewCell
-            cell.configure(with: viewModel.character)
+            cell.bind(data: .init(character: viewModel.character, favouriteStroageController: .init()))
             return cell
         }
         else {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "1", for: indexPath) as! AppearanceCell
-            cell.bind(data: .init(type: viewModel.availableAppearnces[indexPath.row], buttonAction: {
-                self.viewModel.fetchAppearances(type:self.viewModel.availableAppearnces[indexPath.row]  )
+            let type = viewModel.availableAppearnces[indexPath.row]
+            cell.bind(data: .init(type: type , buttonAction: { [weak self] in
+                self?.viewModel.fetchAppearances(type: type)
             }))
             return cell
         }
@@ -96,6 +99,7 @@ class CharacterDetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         indexPath.section == 0 ? 800 : 50
     }
+    
     enum Section: Int, CaseIterable {
         case header
         case appearanceList

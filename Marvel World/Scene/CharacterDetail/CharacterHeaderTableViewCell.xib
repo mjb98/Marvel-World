@@ -63,6 +63,20 @@
                             </stackView>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgM-wa-1Mx">
+                        <rect key="frame" x="323" y="192" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="2OF-gv-fd4"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="629-Bz-FhB"/>
+                            <constraint firstAttribute="width" constant="25" id="Tq9-OZ-dyx"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="smL-PQ-fz8"/>
+                        </constraints>
+                        <state key="normal" image="like"/>
+                        <state key="selected" image="likeFilled"/>
+                        <connections>
+                            <action selector="favouriteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7d9-Bt-Jcl"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ouc-d0-gKN" firstAttribute="top" secondItem="bPg-s4-y0e" secondAttribute="bottom" constant="10" id="4Ov-Jr-6Yn"/>
@@ -70,7 +84,9 @@
                     <constraint firstItem="bPg-s4-y0e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KRM-7h-zCe"/>
                     <constraint firstAttribute="trailing" secondItem="ouc-d0-gKN" secondAttribute="trailing" constant="16" id="MgG-tO-W4f"/>
                     <constraint firstItem="ouc-d0-gKN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Qd1-vK-gpD"/>
+                    <constraint firstAttribute="trailing" secondItem="vgM-wa-1Mx" secondAttribute="trailing" constant="16" id="UGg-eH-gum"/>
                     <constraint firstAttribute="trailing" secondItem="bPg-s4-y0e" secondAttribute="trailing" id="ieo-nn-G5p"/>
+                    <constraint firstItem="vgM-wa-1Mx" firstAttribute="centerY" secondItem="bsA-7U-0zv" secondAttribute="centerY" id="t2V-ey-FUP"/>
                     <constraint firstItem="bPg-s4-y0e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ygl-RY-LJk"/>
                 </constraints>
             </tableViewCellContentView>
@@ -80,6 +96,7 @@
                 <outlet property="characterImageView" destination="bPg-s4-y0e" id="ngS-b4-cfh"/>
                 <outlet property="descriptionTitleLabel" destination="ekc-ew-gPn" id="x9E-Qd-tCu"/>
                 <outlet property="descriptionValueLabel" destination="GaC-xV-Pqr" id="07U-Ss-7p7"/>
+                <outlet property="favouriteButton" destination="vgM-wa-1Mx" id="ITK-73-YaC"/>
                 <outlet property="nameTitleLabel" destination="bsA-7U-0zv" id="jzx-7n-p9Q"/>
                 <outlet property="nameValueLabel" destination="TcS-x2-LSh" id="U9d-nL-0aW"/>
             </connections>
@@ -87,6 +104,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="like" width="19" height="18"/>
+        <image name="likeFilled" width="19" height="18"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

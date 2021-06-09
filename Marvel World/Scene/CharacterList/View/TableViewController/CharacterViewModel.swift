@@ -7,13 +7,21 @@
 
 import Foundation
 
-class CharacterCellViewModel {
+class CharacterViewModel {
     private let favouriteStroageController: FavouritesStroageController
     
     let character: Character
     
     var title: String {
         character.name ?? ""
+    }
+    
+    var description: String {
+        character.description ?? ""
+    }
+    
+    var isDescriptionEmpty: Bool {
+        description.isEmpty
     }
     
     var imageUrl: URL? {
@@ -44,8 +52,8 @@ class CharacterCellViewModel {
 }
 
 
-extension CharacterCellViewModel: Hashable {
-    static func == (lhs: CharacterCellViewModel, rhs: CharacterCellViewModel) -> Bool {
+extension CharacterViewModel: Hashable {
+    static func == (lhs: CharacterViewModel, rhs: CharacterViewModel) -> Bool {
         rhs.character == lhs.character
     }
     

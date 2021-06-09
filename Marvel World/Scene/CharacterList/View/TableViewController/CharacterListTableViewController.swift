@@ -40,7 +40,10 @@ class CharacterListTableViewController: UITableViewController {
             dataSource = .init(tableView: tableView)
             dataSource?.update(with: [], storageController: viewModel.favouritesStorageController)
         }
+        tableView.reloadData()
     }
+    
+   
     
     var dataSource: CharacterListDiffableDataSource?
     
