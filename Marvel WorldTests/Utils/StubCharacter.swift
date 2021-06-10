@@ -15,7 +15,6 @@ struct StubCharacter {
         let url = URL(fileURLWithPath: path)
         let jsonData = try! Data(contentsOf: url)
         return try! JSONDecoder().decode(ResponseData<[Character]>.self, from: jsonData)
-        
     }
     
     static func getCharacters() -> [Character] {

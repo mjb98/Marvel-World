@@ -16,7 +16,8 @@ class ApplicationRouter: Router {
         let characterLoader = NetworkCharacterLoader()
         let storageController = FavouritesFileStroageController()
         let destinationViewModel = CharacterListViewModel(characterLoader: characterLoader, favouritesStorageController: storageController)
-        let destinationViewController = CharacterListViewController(viewModel: destinationViewModel)
+        let destinationRouter = CharacterListRouter(viewModel: destinationViewModel)
+            let destinationViewController = CharacterListViewController(viewModel: destinationViewModel, router: destinationRouter)
         if let navigationController = context as? UINavigationController {
             navigationController.pushViewController(destinationViewController, animated: true)
         }
