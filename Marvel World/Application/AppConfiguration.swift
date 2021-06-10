@@ -10,14 +10,14 @@ import Foundation
 
  struct AppConfiguration {
     static var publicApiKey: String = {
-        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "PublicApiKey") as? String else {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "PublicApiKey") as? String, !apiKey.isEmpty else {
             fatalError("ApiKey must not be empty in plist")
         }
         return apiKey
     }()
     
     static var privateApiKey: String = {
-        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "PrivateApiKey") as? String else {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "PrivateApiKey") as? String, !apiKey.isEmpty else {
             fatalError("ApiKey must not be empty in plist")
         }
         return apiKey

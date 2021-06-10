@@ -13,14 +13,14 @@ class ApplicationRouter: Router {
     }
     func route(to routeID: String, from context: UIViewController, parameters: [DataSourceKey : Any]?) {
         if routeID == Route.characterList.rawValue {
-        let characterLoader = NetworkCharacterLoader()
-        let storageController = FavouritesFileStroageController()
-        let destinationViewModel = CharacterListViewModel(characterLoader: characterLoader, favouritesStorageController: storageController)
-        let destinationRouter = CharacterListRouter(viewModel: destinationViewModel)
+            let characterLoader = NetworkCharacterLoader()
+            let storageController = FavouritesFileStroageController()
+            let destinationViewModel = CharacterListViewModel(characterLoader: characterLoader, favouritesStorageController: storageController)
+            let destinationRouter = CharacterListRouter(viewModel: destinationViewModel)
             let destinationViewController = CharacterListViewController(viewModel: destinationViewModel, router: destinationRouter)
-        if let navigationController = context as? UINavigationController {
-            navigationController.pushViewController(destinationViewController, animated: true)
-        }
+            if let navigationController = context as? UINavigationController {
+                navigationController.pushViewController(destinationViewController, animated: true)
+            }
         }
     }
 }

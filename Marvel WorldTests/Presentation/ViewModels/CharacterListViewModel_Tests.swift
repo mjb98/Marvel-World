@@ -11,37 +11,43 @@ import XCTest
 
 class CharacterListViewModel_Tests: XCTestCase {
     var sut: CharacterListViewModel!
-
-    override func setUpWithError() throws {
+    
+    override func setUp() {
+        super.setUp()
         let storageController = MockFavouriteStorageController()
         let characterLoader = MockCharacterloader()
         MockCharacterloader.souldFail = false
         sut = .init(characterLoader: characterLoader, favouritesStorageController: storageController)
     }
-
+    
+    override  func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+    
+    
     func test_fetchingCharacter_alwaysRequestSucess()  {
-       let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        sut?.fetchCharacters()
-        dispatchGroup.leave()
-      
-        dispatchGroup.notify(queue: .main) {
-            XCTAssert((self.sut.characters.count)  > 0)
-        }
-
+        let didReceiveResponse = expectation(description: #function)
+        self.sut.fetchCharacters()
+        self.sut.$characters.dropFirst().sink { _ in
+            didReceiveResponse.fulfill()
+        }.store(in: &sut.cancelables)
+        waitForExpectations(timeout: 5, handler: nil)
+        
     }
     
     func test_fetchingCharacter_alwaysRequestFails()  {
         MockCharacterloader.souldFail = true
-       let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        sut?.fetchCharacters()
-        dispatchGroup.leave()
-      
-        dispatchGroup.notify(queue: .main) {
-            XCTAssertFalse(self.sut.networkError != nil)
-        }
-
+        self.sut.fetchCharacters()
+        let didReceiveResponse = expectation(description: #function)
+        self.sut.$networkError.dropFirst().sink { error in
+            if error != nil {
+                didReceiveResponse.fulfill()
+            }
+            
+        }.store(in: &sut.cancelables)
+        waitForExpectations(timeout: 5, handler: nil)
+        
     }
     
     func test_didSearch() {
@@ -63,7 +69,7 @@ class CharacterListViewModel_Tests: XCTestCase {
         sut.hideFavouriteCharacters()
         XCTAssert(sut.characters.isEmpty)
     }
-
+    
 }
 
 
