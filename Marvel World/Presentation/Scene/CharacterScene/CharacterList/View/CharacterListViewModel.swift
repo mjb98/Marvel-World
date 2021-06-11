@@ -54,17 +54,21 @@ class CharacterListViewModel: ObservableObject {
     }
     
     // MARK: - Search Handleing
+    private func reloadCharacters() {
+        characters = []
+    }
+    
     func didSearch(query: String) {
         isMoreDataAvailable = true
         self.queryText = query
-        characters = []
+        reloadCharacters()
     }
     
     func didCancelSearch() {
         isMoreDataAvailable = true
         if self.queryText != nil {
             self.queryText = nil
-            characters = []
+            reloadCharacters()
         }
         
     }
@@ -82,7 +86,7 @@ class CharacterListViewModel: ObservableObject {
         navigationTitle = "Characters"
         isMoreDataAvailable = true
         isSearchBarHidden = false
-        characters = []
+        reloadCharacters()
     }
     
     
